@@ -49,24 +49,24 @@ export const Player = (props) => {
 
 
     return (
-        <div class="container" id="searchResults">
-            <div class="row">
-                <div class="col-4">
-                    <img src={props.data.avatarfull} class="img-fluid" />
+        <div className="container" id="searchResults">
+            <div className="row">
+                <div className="col-4">
+                    <img src={props.data.avatarfull} className="img-fluid" />
                 </div>
-                <div class="col-4">
+                <div className="col-4">
                     <p className="playername"> {props.data.personaname} </p>
                     <p className="lastloggon">Last match: {dateFormat(props.data.last_match_time, "dd/mm-yy")} </p>
                 </div>
-                <div class="col-2">
+                <div className="col-2">
                     <i onClick={expandPlayer} className={collapsed ? "arrow down" : "arrow up"}></i>
                 </div>
-                <div class="col-2">
+                <div className="col-2">
                     <i id="star" onClick={favoritePlayer} className={isFavorite ? "fas fa-star " : "far fa-star "} />
                 </div>
                 <div className={collapsed ? "collapsed" : "expanded"}>
                     <a href={playerInfo.profile !== undefined ? playerInfo.profile.profileurl : ""}>
-                        <i class="fab fa-steam fa-3x"></i>
+                        <i className="fab fa-steam fa-3x"></i>
                     </a>
                     <p>Last login: {playerInfo.profile !== undefined ? dateFormat(playerInfo.profile.last_login, "dd/mm-yy") : ""}</p>
                     <p>Country code: {playerInfo.profile !== undefined ? playerInfo.profile.loccountrycode : ""}</p>

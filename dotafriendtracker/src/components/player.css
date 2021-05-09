@@ -106,3 +106,8 @@ a {
 @media (min-width: 768px) and (max-width: 991.98px) {
     /*Tablets*/
 }
+
+button {
+    margin-right: 3%;
+    margin-top: 3%;
+}

@@ -12,7 +12,7 @@ const FriendTrackerMain = () => {
 
 
     const search = (e) => {
-        if (e.keyCode === 13) {
+        if (e.keyCode === 13 && e.target.value.length > 1) {
             searchPlayer(userInput).then(function (data) {
                 setSearchResults(data.data);
             });
@@ -20,11 +20,11 @@ const FriendTrackerMain = () => {
     }
 
     const searchButton = (e) => {
-        
+        if(e.target.value.length > 1){
             searchPlayer(userInput).then(function (data) {
                 setSearchResults(data.data);
             });
-        
+        }
     }
 
     const showFriends = (e) => {
@@ -54,11 +54,11 @@ const FriendTrackerMain = () => {
     return (
         <div id="container">
             <h1 id="pageTitle" >Dota Friend Tracker</h1>
-            <div class="row" id="searchContainer">
+            <div className="row" id="searchContainer">
                 <label htmlFor="">Player Search</label>
                 <input type="text" className="form-control" id="searchField" aria-describedby="searchString" placeholder="Player name" onKeyUp={search} onChange={userInputChange}></input>
-                <button type="button" class="btn btn-danger" onClick={searchButton}>Search</button>
-                <button type="button" class="btn btn-danger" onClick={showFriends}>Show friends</button>
+                <button type="button" className="btn btn-danger" onClick={searchButton}>Search</button>
+                <button type="button" className="btn btn-danger" onClick={showFriends}>Show friends</button>
             </div>
 
 
