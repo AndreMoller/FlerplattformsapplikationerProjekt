@@ -4,13 +4,13 @@ import './player.css'
 import { searchID } from '../services/api-stats.js'
 var dateFormat = require("dateformat");
 
+//represents a single user in the search results
 export const Player = (props) => {
     const [collapsed, setCollapsed] = React.useState(true);
     const [playerInfo, setPlayerInfo] = React.useState([]);
     const [isFavorite, setIsFavorite] = React.useState(false);
 
     const expandPlayer = () => {
-
         if (collapsed) {
             searchID(props.data.account_id).then(function (apidata) {
                 setPlayerInfo(apidata.data);
@@ -22,10 +22,8 @@ export const Player = (props) => {
     const favoritePlayer = () => {
         isFavorite ? setIsFavorite(false) : setIsFavorite(true)
         if (!isFavorite) {
-
             let favorites = JSON.parse(localStorage.getItem("favorites"));
             favorites.push(props.data.account_id);
-
             localStorage.setItem("favorites", JSON.stringify(favorites));
         } else {
             let favorites = JSON.parse(localStorage.getItem("favorites"));
@@ -35,9 +33,6 @@ export const Player = (props) => {
     }
 
     useEffect(() => {
-        if (localStorage.getItem("favorites") == null) {
-            localStorage.setItem("favorites", "[]");
-        }
         let favorites = JSON.parse(localStorage.getItem("favorites"));
         if (favorites.includes(props.data.account_id)) {
             setIsFavorite(true);
@@ -52,7 +47,7 @@ export const Player = (props) => {
         <div className="container" id="searchResults">
             <div className="row">
                 <div className="col-4">
-                    <img src={props.data.avatarfull} className="img-fluid" />
+                    <img src={props.data.avatarfull} className="img-fluid" alt="useravatar" />
                 </div>
                 <div className="col-4">
                     <p className="playername"> {props.data.personaname} </p>
@@ -72,8 +67,6 @@ export const Player = (props) => {
                     <p>Country code: {playerInfo.profile !== undefined ? playerInfo.profile.loccountrycode : ""}</p>
                     <p>MMR: {playerInfo.mmr_estimate !== undefined ? JSON.stringify(playerInfo.mmr_estimate.estimate) : ""}</p>
                     <i className={playerInfo.profile !== undefined && playerInfo.profile.plus ? "fas fa-hand-holding-usd green" : "fas fa-hand-holding-usd"}></i>
-
-
                 </div>
             </div>
         </div>

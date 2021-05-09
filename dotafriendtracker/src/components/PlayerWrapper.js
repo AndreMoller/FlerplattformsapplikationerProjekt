@@ -2,6 +2,7 @@ import React from 'react';
 import Player from './Player.js';
 import "./player.css"
 
+//Container for player components
 const PlayerWrapper = (props) => {
     return (
         <div className="container">

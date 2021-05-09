@@ -51,7 +51,6 @@
 #searchContainer {
     display: flex;
     margin-bottom: 3%;
-    width: 40%;
     margin: auto;
 }
 
@@ -60,7 +59,9 @@ h2 {
     display: flex;
     justify-content: center;
     margin-bottom: 3%;
-    color: black;
+    color: white;
+    font-weight: bold;
+    margin-top: 2%;
 }
 
 .green {
@@ -80,10 +81,12 @@ body {
 
 p {
     color: white;
+    word-wrap: break-word;
 }
 
 label {
     color: white;
+    font-weight: bold;
 }
 
 #searchResults {
@@ -100,6 +103,13 @@ a {
 @media (max-width: 767.98px) {
     .expanded {
         flex-direction: column;
+        margin-left: 4%;
+    }
+    .col-2 {
+        flex-direction: column;
+    }
+    a {
+        margin-top: 1%;
     }
 }
 
@@ -110,4 +120,13 @@ a {
 button {
     margin-right: 3%;
     margin-top: 3%;
+}
+
+.logoandsearch {
+    background-color: rgba(26, 32, 38, 0.9);
+    border-radius: 10px;
+    margin: auto;
+    width: fit-content;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }

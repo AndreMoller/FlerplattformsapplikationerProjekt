@@ -1,10 +1,11 @@
 import React from 'react'
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import PlayerWrapper from './PlayerWrapper.js'
 import searchPlayer from '../services/api-stats.js'
-import {searchID} from '../services/api-stats.js'
+import { searchID } from '../services/api-stats.js'
 import './player.css'
 
+//The main page, contains the search form and is parent component for the search results 
 const FriendTrackerMain = () => {
 
     const [searchResults, setSearchResults] = React.useState([]);
@@ -12,24 +13,28 @@ const FriendTrackerMain = () => {
 
 
     const search = (e) => {
-        if (e.keyCode === 13 && e.target.value.length > 1) {
+        if (e.keyCode === 13 && userInput.length > 2) {
             searchPlayer(userInput).then(function (data) {
                 setSearchResults(data.data);
             });
+        } else if (e.keyCode === 13) {
+            alert("Search string must be at least 3 characters long");
         }
     }
 
     const searchButton = (e) => {
-        if(e.target.value.length > 1){
+        if (userInput.length > 2) {
             searchPlayer(userInput).then(function (data) {
                 setSearchResults(data.data);
             });
+        } else {
+            alert("Search string must be at least 3 characters long");
         }
     }
 
     const showFriends = (e) => {
         setSearchResults([]);
-        if(localStorage.getItem("favorites").length < 3){
+        if (localStorage.getItem("favorites").length < 3) {
             alert("You have no friends");
         } else {
             let friends = JSON.parse(localStorage.getItem("favorites"));
@@ -50,19 +55,19 @@ const FriendTrackerMain = () => {
             localStorage.setItem("favorites", "[]");
         }
     }, [])
-    
+
     return (
         <div id="container">
-            <h1 id="pageTitle" >Dota Friend Tracker</h1>
-            <div className="row" id="searchContainer">
-                <label htmlFor="">Player Search</label>
-                <input type="text" className="form-control" id="searchField" aria-describedby="searchString" placeholder="Player name" onKeyUp={search} onChange={userInputChange}></input>
-                <button type="button" className="btn btn-danger" onClick={searchButton}>Search</button>
-                <button type="button" className="btn btn-danger" onClick={showFriends}>Show friends</button>
+            <div className="logoandsearch">
+                <img className="d-block mx-auto img-fluid" src="https://icon-library.com/images/dota-2-icon/dota-2-icon-3.jpg" alt="dota2logo"></img>
+                <h2>Friend Tracker</h2>
+                <div className="row" id="searchContainer">
+                    <label htmlFor="">Player Search</label>
+                    <input type="text" className="form-control" id="searchField" aria-describedby="searchString" placeholder="Player name" onKeyUp={search} onChange={userInputChange}></input>
+                    <button type="button" className="btn btn-danger" onClick={showFriends}>Show friends</button>
+                    <button type="button" className="btn btn-light" onClick={searchButton}>Search</button>
+                </div>
             </div>
-
-
-
             <PlayerWrapper data={searchResults} />
         </div>
     )
