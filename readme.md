@@ -14,7 +14,11 @@ För att skapa Dota Friend Tracker hade det gått lika bra att använda Vue elle
 
 Den primära anledningen till att vi inte använder Vue är för enligt [zerotomastery](https://zerotomastery.io/blog/tech-trends-showdown-react-vs-angular-vs-vue/) så är Vue de ramverk med minst antal jobbanonnser på LinkedIn. Med react och Angular på en delad förstaplats.
 
-Den primära anledningen till att vi inte använder Angular är för Angular är baserad på TypeScript och vi vill använda vanlig JavaScript. Det är möjligt att skriva vanlig javascript med Angular men Angular har viss funktionalitet som inte går att implementera lika lätt med javascript, exemplvis annotaions. 
+Den primära anledningen till att vi inte använder Angular är för Angular är baserad på TypeScript och vi vill använda vanlig JavaScript. Det är möjligt att skriva vanlig javascript med Angular men Angular har viss funktionalitet som inte går att implementera lika lätt med javascript, exemplvis annotaions. Samt att i princip all dokumentation för Angular är för Typescript. 
+
+TypeScripts fördelar är något som vi diskuterade tidigt i projektet, med statisk typing kan högre readability uppnås och skapa en bättre struktur samt minska risken för felbenämning. Trots alla fördelar så fann vi att tiden det hade tagit att läsa på och bli bekväma med TypeScript-syntax och den extra kod som krävs för en effektiv TypeScript struktur inte vägde upp tillräckligt för ett projekt av denna storleken.  
+
+I [Why We Chose Angular Over React](https://medium.com/@jacobfriesen/why-we-chose-angular-over-react-e633b9d5d155) nämns att Reacts fokus på prestanda har resulterat i att applikationer skapade i React upplevs ha komplex kod. Detta är dock inget vi känner effekterna av på grund av projektets storlek. 
 
 Viktigt att nämna men kanske orelevant för en jämförelse är att vi använde oss av React i JS-Ramverk labben, vilket innebär att vi redan har en ide om hur React fungerar och det blir en mindre inlärningskurva i början av projektet. Detta är även en utmärkt möjlighet att skaffa oss en djupare förståelse för React.
 
