@@ -65,13 +65,13 @@ export const Player = (props) => {
                     <i id="star" onClick={favoritePlayer} className={isFavorite ? "fas fa-star " : "far fa-star "} />
                 </div>
                 <div className={collapsed ? "collapsed" : "expanded"}>
-                    <a href={playerInfo.profile != undefined ? playerInfo.profile.profileurl : ""}>
+                    <a href={playerInfo.profile !== undefined ? playerInfo.profile.profileurl : ""}>
                         <i class="fab fa-steam fa-3x"></i>
                     </a>
-                    <p>Last login: {playerInfo.profile != undefined ? dateFormat(playerInfo.profile.last_login, "dd/mm-yy") : ""}</p>
-                    <p>Country code: {playerInfo.profile != undefined ? playerInfo.profile.loccountrycode : ""}</p>
-                    <p>MMR: {playerInfo.mmr_estimate != undefined ? JSON.stringify(playerInfo.mmr_estimate.estimate) : ""}</p>
-                    <i className={playerInfo.profile != undefined && playerInfo.profile.plus ? "fas fa-hand-holding-usd green" : "fas fa-hand-holding-usd"}></i>
+                    <p>Last login: {playerInfo.profile !== undefined ? dateFormat(playerInfo.profile.last_login, "dd/mm-yy") : ""}</p>
+                    <p>Country code: {playerInfo.profile !== undefined ? playerInfo.profile.loccountrycode : ""}</p>
+                    <p>MMR: {playerInfo.mmr_estimate !== undefined ? JSON.stringify(playerInfo.mmr_estimate.estimate) : ""}</p>
+                    <i className={playerInfo.profile !== undefined && playerInfo.profile.plus ? "fas fa-hand-holding-usd green" : "fas fa-hand-holding-usd"}></i>
 
 
                 </div>

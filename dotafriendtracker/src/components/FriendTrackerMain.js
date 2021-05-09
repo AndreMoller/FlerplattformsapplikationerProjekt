@@ -19,6 +19,14 @@ const FriendTrackerMain = () => {
         }
     }
 
+    const searchButton = (e) => {
+        
+            searchPlayer(userInput).then(function (data) {
+                setSearchResults(data.data);
+            });
+        
+    }
+
     const showFriends = (e) => {
         setSearchResults([]);
         if(localStorage.getItem("favorites").length < 3){
@@ -31,10 +39,6 @@ const FriendTrackerMain = () => {
                 });
             });
         }
-
-
-        
-
     }
 
     const userInputChange = (e) => {
@@ -53,6 +57,7 @@ const FriendTrackerMain = () => {
             <div class="row" id="searchContainer">
                 <label htmlFor="">Player Search</label>
                 <input type="text" className="form-control" id="searchField" aria-describedby="searchString" placeholder="Player name" onKeyUp={search} onChange={userInputChange}></input>
+                <button type="button" class="btn btn-danger" onClick={searchButton}>Search</button>
                 <button type="button" class="btn btn-danger" onClick={showFriends}>Show friends</button>
             </div>
 
