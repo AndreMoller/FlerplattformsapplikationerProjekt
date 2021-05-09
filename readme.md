@@ -4,4 +4,6 @@
 
 1. Navigera till projektkatalogen med powershell/terminal
 2. Kör "npm install"
-3. Kör"zzzz
+3. Kör "npm start"
+
+## Varför react?
